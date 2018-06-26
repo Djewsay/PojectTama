@@ -1,7 +1,7 @@
-public class Dragon extends Species {
+public class TamaFish extends Species {
 
 
-    public Dragon(String name) {
+    public TamaFish(String name) {
         super(name);
     }
 
