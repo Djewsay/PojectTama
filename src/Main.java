@@ -1,10 +1,16 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-      //  Minigames.galgje();
+        Minigames.galgje();
+
+     /*   ArrayList<String> test = new ArrayList<String>();
+        test.add("test");
+        test.add("test2");
+        System.out.println(test.get(0));  */
 
 // we let the user select his/her character
         Species tama = charSelect();
@@ -13,7 +19,7 @@ public class Main {
         while(!isDead(tama)) {
 
 
-            giveChoice(tama);
+            choiceMenu(tama);
             tama.checkStats();
             if(isDead(tama)){
                 System.out.println("R.I.P. "+ tama.getName());
@@ -31,19 +37,19 @@ public class Main {
 
 
      public static Species charSelect(){ //here we give the user the option which species he/she wants to play
-         System.out.println("please choose your species: 1 for Dragon, 2 for Titan and 3 for god");
+         System.out.println("please select your species: 1 for Fish, 2 for Dog, 3 for Cat");
          Scanner sc  = new Scanner(System.in);
          String choice = sc.nextLine();
 
 
          if (choice.equals("1")){
-               Dragon tama = createDragon();
+               TamaFish tama = createTamaFish();
                return tama;
          }else if(choice.equals("2")){
-              Titan tama =createTitan();
+              TamaDog tama =createTamaDog();
               return tama;
          }else if (choice.equals("3")){
-               God tama = createGod();
+               TamaCat tama = createTamaCat();
                return tama;
          }
 
@@ -54,65 +60,77 @@ public class Main {
 
 
 
-    public static Dragon createDragon () {
-        System.out.println("please enter the name you wish to bestow upon your dragonkin");
+    public static TamaFish createTamaFish () {
+        System.out.println("please enter the name you wish to bestow upon your water spawn");
         Scanner sc = new Scanner(System.in);
         String givenName = sc.nextLine();
 
-        Dragon tama = new Dragon(givenName);
-        System.out.println("Your dragon has been blessed with the name: " + tama.getName() + "");
+        TamaFish tama = new TamaFish(givenName);
+        System.out.println("Your fish has been blessed with the name: " + tama.getName() + "");
         return tama;
 
     }
 
 
-    public static God createGod(){
+    public static TamaCat createTamaCat(){
 
-        System.out.println("please enter the name you wish to bestow upon your deity");
+        System.out.println("please enter the name you wish to bestow upon your cat");
         Scanner sc = new Scanner(System.in);
         String givenName = sc.nextLine();
 
-        God tama = new God(givenName);
-        System.out.println("Your deity has been blessed with the name: " + tama.getName() + "");
+        TamaCat tama = new TamaCat(givenName);
+        System.out.println("Your cat has been blessed with the name: " + tama.getName() + "");
         return tama;
     }
 
 
 
 
-    public static Titan createTitan(){
+    public static TamaDog createTamaDog(){
 
-        System.out.println("please enter the name you wish to bestow upon your titan");
+        System.out.println("please enter the name you wish to bestow upon your doggo");
         Scanner sc = new Scanner(System.in);
         String givenName = sc.nextLine();
 
-        Titan tama = new Titan(givenName);
-        System.out.println("Your titan has been blessed with the name: " + tama.getName() + "");
+        TamaDog tama = new TamaDog(givenName);
+        System.out.println("Your doggo has been blessed with the name: " + tama.getName() + "");
         return tama;
     }
 
 
 
-public static void giveChoice(Species tama){ //this is the choice menu for the user, need to make an arraylist of some sort so i can easily add new features
+public static void choiceMenu(Species tama){ //this is the choice menu for the user, need to make an arraylist of some sort so i can easily add new features
 
-    System.out.println("choose between eat, play,train or sleep");
+
+    System.out.println("type a command or /commands to see the available commands");
+
+
     Scanner sc = new Scanner(System.in);
     String choice = sc.nextLine();
 
-    if (choice.equals("eat")) {
+    if (choice.equals("/eat")) {
 
         tama.eat();
 
-    } else if (choice.equals("play")) {
+    } else if (choice.equals("/play")) {
 
         tama.play();
-    } else if (choice.equals("sleep")) {
+    } else if (choice.equals("/sleep")) {
 
         tama.sleep();
-    } else if (choice.equals(("train"))) {
+    } else if (choice.equals(("/train"))) {
 
         tama.train();
-    }
+    }else if (choice.equals("/commands")){
+
+        System.out.println("these are the available commands: ");
+        System.out.println();
+        System.out.println("/eat");
+        System.out.println("/play");
+        System.out.println("/sleep");
+        System.out.println("/train");
+
+    }else System.out.println("not a valid input");
 
 
 }
@@ -123,6 +141,24 @@ public static boolean isDead(Species tama){ //checks if te user's spawn is RIP
             rip = true;
         }return rip;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -8,9 +8,10 @@ public class Minigames {
 
     public static void galgje () {
 
-        getOpgave();
-
+        System.out.println();
     }
+
+
 
 
     public static ArrayList getOpgave(){ //haalt een random opgave uit de lijst met opgaves en maakt een arraylist van de opgave // int maken met nodige lengte array
@@ -30,33 +31,46 @@ public class Minigames {
 
 
 
+/*
 
+    public static ArrayList<String> createCurrentGuess(){  //maakt een array van _ om te kunnen tonen als een grafische weergave
 
-    public static String[] createCurrentGuess(){  //maakt een array van _ om te kunnen tonen als een grafische weergave
+        ArrayList<String> currentGuess = new ArrayList(getOpgave().size());
 
-        String[] currentGuess = new String[getOpgave().size()];
+        for(int i= 0; i <currentGuess.size(); i++){
 
-        for(int i= 0; i <currentGuess.length; i++){
-
-            currentGuess[i] = " _ ";
+            currentGuess.get() = " _ ";
 
         }return currentGuess;
 
     }
 
+*/
 
 
-
-    public static String[] getInput(){ //  user input becomes an array
+    public static ArrayList<String> getInput(){ //  user input becomes an array
 
 
         System.out.println("voer uw gok in, één letter, of het volledige woord");
         Scanner sc = new Scanner(System.in);
         String gok = sc.nextLine();
-        String[] guess = new String[gok.length()];
+        ArrayList<String> guess = new ArrayList<>(gok.length());
         return guess;
 
         }
+
+
+
+
+     public static void printArrayList(ArrayList<String> e ){ //zou moeten in staat zijn een arraylist te printen
+
+        for (int i = 0; i < e.size();i++){
+
+            System.out.println(e.get(i));
+
+        }
+
+     }
 
 
 

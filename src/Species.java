@@ -264,9 +264,6 @@ public class   Species {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Species(int health, int maxHealth, int age, int mood, int maxMood, int strength, int defense, int energy, int maxEnergy, int experience, int maxExperience) {
         this.health = health;
