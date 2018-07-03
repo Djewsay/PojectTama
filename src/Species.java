@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class   Species {
 
     private int health = 20;
@@ -116,7 +118,23 @@ public class   Species {
         System.out.println("Congo rats! your spawn has leveled up!");
         checkStats();
         printAllStats();
+        miniGame();
 
+
+    }
+
+
+
+    public void miniGame(){
+
+        System.out.println("you now get the chance to play a minigame and win shit!");
+        System.out.println("press C to start");
+
+        Scanner sc = new Scanner(System.in);
+        String choice = sc.nextLine();
+        if (choice.equals("c")){
+            Minigames.galgje();
+        }else System.out.println("you should really try this minigame the minigame next time RIP");
 
     }
 

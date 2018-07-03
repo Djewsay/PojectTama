@@ -5,13 +5,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Minigames.galgje();
-
-     /*   ArrayList<String> test = new ArrayList<String>();
-        test.add("test");
-        test.add("test2");
-        System.out.println(test.get(0));  */
-
 // we let the user select his/her character
         Species tama = charSelect();
 
@@ -32,6 +25,14 @@ public class Main {
 
 
     }
+
+
+
+
+
+
+
+
 
 
 
@@ -130,8 +131,12 @@ public static void choiceMenu(Species tama){ //this is the choice menu for the u
         System.out.println("/sleep");
         System.out.println("/train");
 
-    }else System.out.println("not a valid input");
+    }else if (choice.equals("rarecandy")){
 
+        tama.levelUp();
+
+
+    }else System.out.println("not a valid input");
 
 }
 
