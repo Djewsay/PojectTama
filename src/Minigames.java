@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Minigames {
+public class Minigames { //to do, reeds ingegeven letters
 
 
     public static void galgje() {
@@ -28,17 +28,19 @@ public class Minigames {
 
         int faultyguesses = 0;
         boolean guessed = false;
+        boolean correct =false;
+        ArrayList<Character> alreadyGuessed = new ArrayList<>();
+
+       while (!guessed&& faultyguesses<5) {
 
 
+            System.out.println("your current amount of faulty guesses is "+faultyguesses);
+            System.out.println("do you wish to guess a character (1) or the whole word?(2)");
 
-
-       while (!guessed) {
-
-            System.out.println("do you wish to guess a character (c) or the whole word?(word)");
             Scanner s = new Scanner(System.in);
             String choice = s.nextLine();
 
-            if (choice.equals("word")){
+            if (choice.equals("2")){
 
                 System.out.println("please enter your guess");
                 Scanner sc = new Scanner(System.in);
@@ -47,12 +49,15 @@ public class Minigames {
 
                     System.out.println("congo rats, you guessed it right");
                     guessed =true;
-                }
+                }else faultyguesses++;
 
 
-            }else if (choice.equals("c")) {
+            }else if (choice.equals("1")) {
 
+                guessed = false;
                 System.out.println("guess your character and see!");
+                System.out.print("you have already tried: ") ;
+                printArrayList(alreadyGuessed);
                 Scanner sc = new Scanner(System.in);
                 char guess = sc.nextLine().charAt(0);
 
@@ -61,11 +66,16 @@ public class Minigames {
 
 
                     if (guess == answer[k]) {
-
+                        correct = true;
                         hiddenAnswer[k] = guess;
                     }
 
                 }
+                if(correct ==false){
+                    faultyguesses++;
+                    alreadyGuessed.add(guess);
+                }
+
                 System.out.println("this is what your current answer looks like");
                 printArray(hiddenAnswer);
 
@@ -75,6 +85,17 @@ public class Minigames {
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -113,6 +134,21 @@ public class Minigames {
         System.out.println();
 
     }
+
+
+
+    public static void printArrayList(ArrayList c) { //zou moeten in staat zijn een arraylist te printen
+
+        for (int i = 0; i < c.size(); i++) {
+
+            System.out.print(c.get(i)+" ");
+
+        }
+        System.out.println();
+
+    }
+
+
 
 
 }
