@@ -5,6 +5,9 @@ public class Main {
 
     public static void main(String[] args) {
 
+        long startTime = System.nanoTime();
+
+
 // we let the user select his/her character
         Species tama = charSelect();
 

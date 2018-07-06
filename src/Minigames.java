@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Minigames { //to do, reeds ingegeven letters
 
 
-    public static void galgje() {
+    public static void hangMan() {
 
         ArrayList<String> opgaves = opgaves();
         String opgave = getRndOpgave(opgaves);
@@ -26,15 +26,15 @@ public class Minigames { //to do, reeds ingegeven letters
         printArray(hiddenAnswer);
         System.out.println();
 
-        int faultyguesses = 0;
-        boolean guessed = false;
-        boolean correct =false;
+        int faultyGuesses = 0;
+        boolean succeeded = false;
+        boolean correct;
         ArrayList<Character> alreadyGuessed = new ArrayList<>();
 
-       while (!guessed&& faultyguesses<5) {
+       while (!succeeded&& faultyGuesses<5) {
 
 
-            System.out.println("your current amount of faulty guesses is "+faultyguesses);
+            System.out.println("your current amount of faulty guesses is "+faultyGuesses);
             System.out.println("do you wish to guess a character (1) or the whole word?(2)");
 
             Scanner s = new Scanner(System.in);
@@ -48,13 +48,13 @@ public class Minigames { //to do, reeds ingegeven letters
                 if (wordChoice.equals(opgave)){
 
                     System.out.println("congo rats, you guessed it right");
-                    guessed =true;
-                }else faultyguesses++;
+                    succeeded =true;
+                }else faultyGuesses++;
 
 
             }else if (choice.equals("1")) {
 
-                guessed = false;
+                correct = false;
                 System.out.println("guess your character and see!");
                 System.out.print("you have already tried: ") ;
                 printArrayList(alreadyGuessed);
@@ -71,8 +71,8 @@ public class Minigames { //to do, reeds ingegeven letters
                     }
 
                 }
-                if(correct ==false){
-                    faultyguesses++;
+                if(!correct){
+                    faultyGuesses++;
                     alreadyGuessed.add(guess);
                 }
 

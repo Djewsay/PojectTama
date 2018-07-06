@@ -133,7 +133,7 @@ public class   Species {
         Scanner sc = new Scanner(System.in);
         String choice = sc.nextLine();
         if (choice.equals("c")){
-            Minigames.galgje();
+            Minigames.hangMan();
         }else System.out.println("you should really try this minigame the minigame next time RIP");
 
     }
