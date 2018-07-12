@@ -8,6 +8,7 @@ public class Main {
         long startTime = System.nanoTime();
 
 
+
 // we let the user select his/her character
         Species tama = charSelect();
 
@@ -43,7 +44,7 @@ public class Main {
      public static Species charSelect(){ //here we give the user the option which species he/she wants to play
          System.out.println("please select your species: 1 for Fish, 2 for Dog, 3 for Cat");
          Scanner sc  = new Scanner(System.in);
-         String choice = sc.nextLine();
+         String choice = sc.nextLine().toLowerCase();
 
 
          if (choice.equals("1")){

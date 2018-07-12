@@ -152,6 +152,9 @@ public class   Species {
         System.out.println("strength: " +strength);
         System.out.println("defense: " +defense);
 
+
+
+
     }
 
 
