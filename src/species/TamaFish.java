@@ -1,3 +1,5 @@
+package species;
+
 public class TamaFish extends Species {
 
 

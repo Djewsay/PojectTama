@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+import species.*;
+
 import java.util.Scanner;
 
 public class Main {

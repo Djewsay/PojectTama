@@ -1,3 +1,5 @@
+package species;
+
 import java.util.Scanner;
 
 public class   Species {
@@ -21,6 +23,7 @@ public class   Species {
 
 
     public  void eat() {
+
 
         TamaUtil.checkStats(this);
 

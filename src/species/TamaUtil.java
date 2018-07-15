@@ -1,3 +1,5 @@
+package species;
+
 import minigames.HangMan;
 
 import java.util.Scanner;
