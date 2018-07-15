@@ -109,7 +109,7 @@ public class HangMan {
         opgaves.add("amnestie");
         opgaves.add("idiosyncratisch");
         opgaves.add("vigilant");
-        opgaves.add("pramatisch");
+        opgaves.add("pragmatisch");
         opgaves.add("ultramontanisme");
         opgaves.add("gallicanisme");
 
