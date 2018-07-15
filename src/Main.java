@@ -12,12 +12,13 @@ public class Main {
 // we let the user select his/her character
         Species tama = charSelect();
 
+
 // we currently loop until the tama is dead
         while(!isDead(tama)) {
 
 
             choiceMenu(tama);
-            tama.checkStats();
+           TamaUtil.checkStats(tama);
             if(isDead(tama)){
                 System.out.println("R.I.P. "+ tama.getName());
                 System.out.println("Try again?");

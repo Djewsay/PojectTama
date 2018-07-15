@@ -22,7 +22,7 @@ public class   Species {
 
     public  void eat() {
 
-        checkStats();
+        TamaUtil.checkStats(this);
 
         if(energy > 0) {
 
@@ -30,7 +30,7 @@ public class   Species {
             mood++;
             energy = energy - 2;
             experience++;
-             checkStats();
+            TamaUtil.checkStats(this);
             System.out.println("mood: "+mood+"/"+maxMood);
             System.out.println("energy: "+energy+"/"+maxEnergy);
 
@@ -51,13 +51,12 @@ public class   Species {
     }
 
     public void play() {
-           checkStats();
-        if(energy>0){
+        TamaUtil.checkStats(this);        if(energy>0){
             System.out.println("spawn is playing");
             mood ++;
             experience++;
             energy = energy -2;
-            checkStats();
+            TamaUtil.checkStats(this);
             System.out.println("mood: "+mood+"/"+maxMood);
             System.out.println("energy: "+energy+"/"+maxEnergy);
 
@@ -73,10 +72,9 @@ public class   Species {
 
 
     public void sleep(){
-         checkStats();
-        energy = 10;
+        TamaUtil.checkStats(this);        energy = 10;
         System.out.println("energy replenished, energy: "+energy);
-        checkStats();
+        TamaUtil.checkStats(this);
 
 
     }
@@ -88,7 +86,7 @@ public class   Species {
         strength++;
         defense++;
         experience++;
-        checkStats();
+        TamaUtil.checkStats(this);
 
         System.out.println("mood: "+mood+"/"+maxMood);
         System.out.println("energy "+energy+"/"+maxEnergy);
@@ -116,76 +114,18 @@ public class   Species {
         mood = maxMood;
         experience=0;
         System.out.println("Congo rats! your spawn has leveled up!");
-        checkStats();
-        printAllStats();
-        miniGame();
+        TamaUtil.checkStats(this);
+        TamaUtil.printAllStats(this);
+        TamaUtil.miniGame();
 
 
     }
 
 
 
-    public void miniGame(){
-
-        System.out.println("you now get the chance to play a minigame and win shit!");
-        System.out.println("press C to start");
-
-        Scanner sc = new Scanner(System.in);
-        String choice = sc.nextLine();
-        if (choice.equals("c")){
-            Minigames.hangMan();
-        }else System.out.println("you should really try this minigame the minigame next time RIP");
-
-    }
 
 
 
-    public void printAllStats(){
-
-        System.out.println("your current stats are ");
-        System.out.println();
-        System.out.println("level: " +age);
-        System.out.println("health: "+health+"/"+maxHealth);
-        System.out.println("energy: " +energy+"/"+maxEnergy);
-
-        System.out.println("mood: " +mood+"/"+maxMood);
-        System.out.println("strength: " +strength);
-        System.out.println("defense: " +defense);
-
-
-
-
-    }
-
-
-     public void checkStats(){
-
-        if(this.energy <5){
-        System.out.println("spawn is getting tired");
-        }
-
-        if (this.health <= 0){
-
-       
-            System.out.println("spawn died in agony");
-
-         }
-         if(this.mood<5){
-             System.out.println("spawn is getting angry");
-         }
-         if(this.mood<=0){
-             System.out.println("spawn is angry and rebelled it's way out of your control");
-
-         }
-         if(this.mood >10){
-            this.mood = 10;
-         }
-         if(this.energy >10){
-            this.energy = 10;
-         }
-         if(this.health >this.maxHealth){
-     }      this.health = this.maxHealth;
-         }
 
 
     public int getHealth() {
